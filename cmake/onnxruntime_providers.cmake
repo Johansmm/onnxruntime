@@ -116,7 +116,7 @@ endif()
 if (onnxruntime_USE_AZURE)
   set(PROVIDERS_AZURE onnxruntime_providers_azure)
 endif()
-
+set(PROVIDERS_AKIDA onnxruntime_providers_akida)
 
 if(onnxruntime_USE_SNPE)
   include(onnxruntime_snpe_provider.cmake)
@@ -206,3 +206,5 @@ endif()
 if (onnxruntime_USE_AZURE)
   include(onnxruntime_providers_azure.cmake)
 endif()
+
+include(onnxruntime_providers_akida.cmake)

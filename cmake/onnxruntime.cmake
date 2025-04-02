@@ -38,7 +38,7 @@ function(get_c_cxx_api_headers HEADERS_VAR)
 
   # need to add header files for enabled EPs
   foreach(f ${ONNXRUNTIME_PROVIDER_NAMES})
-    # The header files in include/onnxruntime/core/providers/cuda directory cannot be flattened to the same directory 
+    # The header files in include/onnxruntime/core/providers/cuda directory cannot be flattened to the same directory
     # with onnxruntime_c_api.h . Most other EPs probably also do not work in this way.
     if((NOT f STREQUAL cuda) AND (NOT f STREQUAL rocm))
       file(GLOB _provider_headers CONFIGURE_DEPENDS
@@ -204,6 +204,7 @@ set(onnxruntime_INTERNAL_LIBRARIES
   ${PROVIDERS_AZURE}
   ${PROVIDERS_INTERNAL_TESTING}
   ${onnxruntime_winml}
+  onnxruntime_providers_akida
   onnxruntime_optimizer
   onnxruntime_providers
   ${onnxruntime_tvm_libs}

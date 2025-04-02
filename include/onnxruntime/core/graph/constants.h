@@ -53,6 +53,7 @@ constexpr const char* kWebNNExecutionProvider = "WebNNExecutionProvider";
 constexpr const char* kCannExecutionProvider = "CANNExecutionProvider";
 constexpr const char* kAzureExecutionProvider = "AzureExecutionProvider";
 constexpr const char* kVSINPUExecutionProvider = "VSINPUExecutionProvider";
+constexpr const char* kAkidaExecutionProvider = "AkidaExecutionProvider";
 
 constexpr const char* kExecutionProviderSharedLibraryPath = "shared_lib_path";
 constexpr const char* kExecutionProviderSharedLibraryEntry = "provider_factory_entry_point";
