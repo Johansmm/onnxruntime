@@ -180,6 +180,7 @@ int real_main(int argc, char* argv[], Ort::Env& env) {
   bool enable_rocm = false;
   bool enable_migraphx = false;
   bool enable_xnnpack = false;
+  bool enable_akida = false;
   bool override_tolerance = false;
   double atol = 1e-5;
   double rtol = 1e-5;
@@ -269,6 +270,8 @@ int real_main(int argc, char* argv[], Ort::Env& env) {
             enable_migraphx = true;
           } else if (!CompareCString(optarg, ORT_TSTR("xnnpack"))) {
             enable_xnnpack = true;
+          } else if (!CompareCString(optarg, ORT_TSTR("akida"))) {
+            enable_akida = true;
           } else {
             usage();
             return -1;
@@ -694,6 +697,17 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
 #else
       fprintf(stderr, "XNNPACK is not supported in this build");
       return -1;
+#endif
+    }
+    if (enable_akida) {
+      sf.AppendExecutionProvider("AKIDA", {});
+      // OrtSessionOptionsAppendExecutionProvider_Akida(sf, {});
+#ifdef USE_AKIDA
+//       sf.SetGraphOptimizationLevel(ORT_DISABLE_ALL);
+//       sf.AppendExecutionProvider("AKIDA", {});
+// #else
+// fprintf(stderr, "Akida is not supported in this build");
+// return -1;
 #endif
     }
 

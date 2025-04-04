@@ -40,3 +40,4 @@
 #ifdef USE_CANN
 #include "core/providers/cann/cann_provider_factory.h"
 #endif
+#include "core/providers/akida/akida_execution_provider.h"
